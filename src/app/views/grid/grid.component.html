@@ -1,0 +1,28 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>Grid</strong>
+          <div class="card-actions">
+            <a href="#" class="btn-setting"><i class="icon-settings"></i></a>
+            <button class="btn-minimize" type="button" data-toggle="collapse" data-target="" aria-expanded="false" aria-controls="collapseExample">
+              <i class="icon-arrow-up"></i>
+            </button>
+            <a href="#" class="btn-close"><i class="icon-close"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <p-dataTable [value]="cars">
+            <p-column field="vin" header="Vin"></p-column>
+            <p-column field="year" header="Year"></p-column>
+            <p-column field="brand" header="Brand"></p-column>
+            <p-column field="color" header="Color"></p-column>
+          </p-dataTable>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+</div>
