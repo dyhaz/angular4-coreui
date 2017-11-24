@@ -8,16 +8,17 @@ import { RegisterComponent } from './register.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {GrowlModule} from 'primeng/primeng';
+import {PaginatorModule} from 'primeng/primeng';
 
 import { AuthenticationService, UserService } from '../../_services/index';
-import {MessageService} from 'primeng/components/common/messageservice';
+import { MessageService } from 'primeng/components/common/messageservice';
 import { HttpClientModule } from '@angular/common/http';
 import { Http, Response, HttpModule }    from '@angular/http';
 
 import { PagesRoutingModule } from './pages-routing.module';
 
 @NgModule({
-  imports: [ PagesRoutingModule, FormsModule, CommonModule, HttpClientModule, HttpModule, GrowlModule ],
+  imports: [ PagesRoutingModule, FormsModule, CommonModule, HttpClientModule, HttpModule, GrowlModule, PaginatorModule ],
   declarations: [
     P404Component,
     P500Component,

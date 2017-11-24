@@ -48,6 +48,15 @@ export const routes: Routes = [
         loadChildren: './views/grid/grid.module#GridModule'
       },
       {
+        path: 'form-validation',
+        loadChildren: './views/form-validation/form-validation.module#FormValidationModule'
+      },
+
+      {
+        path: 'dropdown',
+        loadChildren: './views/dropdowns/dropdowns.module#DropdownsModule'
+      },
+      {
         path: 'charts',
         loadChildren: './views/chartjs/chartjs.module#ChartJSModule'
       }

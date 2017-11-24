@@ -1,9 +1,10 @@
 <div class="animated fadeIn">
+  <p-growl [(value)]="msgs"></p-growl>
   <div class="row">
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <strong>Grid</strong>
+          <strong>Users</strong>
           <div class="card-actions">
             <a href="#" class="btn-setting"><i class="icon-settings"></i></a>
             <button class="btn-minimize" type="button" data-toggle="collapse" data-target="" aria-expanded="false" aria-controls="collapseExample">
@@ -13,12 +14,42 @@
           </div>
         </div>
         <div class="card-body">
-          <p-dataTable [value]="cars">
-            <p-column field="vin" header="Vin"></p-column>
-            <p-column field="year" header="Year"></p-column>
-            <p-column field="brand" header="Brand"></p-column>
-            <p-column field="color" header="Color"></p-column>
+          <p-dataTable [value]="users">
+            <p-column field="emailAddress" header="Email Address"></p-column>
+            <p-column field="userName" header="Username"></p-column>
+            <p-column field="name" header="Name"></p-column>
+            <p-column field="surname" header="Surname"></p-column>
+            <p-column field="phoneNumber" header="Phone Number"></p-column>
           </p-dataTable>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>Audit Logs</strong>
+          <div class="card-actions">
+            <a href="#" class="btn-setting"><i class="icon-settings"></i></a>
+            <button class="btn-minimize" type="button" data-toggle="collapse" data-target="" aria-expanded="false" aria-controls="collapseExample">
+              <i class="icon-arrow-up"></i>
+            </button>
+            <a href="#" class="btn-close"><i class="icon-close"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <p-dataTable [value]="auditLogs">
+            <p-column field="startDate" header="Start Date"></p-column>
+            <p-column field="endDate" header="End Date"></p-column>
+            <p-column field="userName" header="User Name"></p-column>
+            <p-column field="serviceName" header="Service Name"></p-column>
+            <p-column field="methodName" header="Method Name"></p-column>
+            <p-column field="browserInfo" header="Browser Info"></p-column>
+          </p-dataTable>
+          <p-paginator rows="10" totalRecords="{{ totalAuditLogs }}" [rowsPerPageOptions]="[10]" (onPageChange)="paginate($event)"></p-paginator>
         </div>
       </div>
     </div>

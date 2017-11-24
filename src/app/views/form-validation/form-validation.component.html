@@ -1,0 +1,64 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <form name="form" (ngSubmit)="f.form.valid?true:showValidationError() && register()" #f="ngForm" [formGroup]="registrationForm" novalidate>
+                        <p-growl [(value)]="msgs"></p-growl>
+                        <div class="form-group" [ngClass]="{ 'has-error': registrationForm.controls['emailAddress'].invalid }"  [formGroup]="registrationForm">
+                            <label for="emailAddress">Email Address</label>
+                            <input type="text" class="form-control" formControlName="emailAddress" name="emailAddress" required />
+                            <span [@visibilityChanged]="registrationForm.controls['emailAddress'].errors && !registrationForm.controls['emailAddress'].pristine" *ngIf="registrationForm.controls['emailAddress'].errors && !registrationForm.controls['emailAddress'].pristine" class="help-block">
+                                <div [hidden]="!registrationForm.controls['emailAddress'].errors.required">Email is required.</div>
+                                <div [hidden]="!registrationForm.controls['emailAddress'].errors.patternInvalid">Email is invalid.</div>
+                            </span>
+                        </div>
+                        <div class="form-group" [ngClass]="{ 'has-error': registrationForm.controls['userName'].invalid }" [formGroup]="registrationForm">
+                            <label for="userName">Username</label>
+                            <input type="text" class="form-control" formControlName="userName" name="userName" required />
+                            <span *ngIf="registrationForm.controls['userName'].errors && !registrationForm.controls['userName'].pristine" class="help-block">
+                                <div [hidden]="!registrationForm.controls['userName'].errors.required">Username is required.</div>
+                            </span>
+                        </div>
+                        <div class="form-group" [ngClass]="{ 'has-error': registrationForm.controls['name'].invalid }" [formGroup]="registrationForm">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" formControlName="name" name="name" required />
+                            <span *ngIf="registrationForm.controls['name'].errors && !registrationForm.controls['name'].pristine" class="help-block">
+                                <div [hidden]="!registrationForm.controls['name'].errors.required">Name is required.</div>
+                            </span>
+                        </div>
+                        <div class="form-group" [ngClass]="{ 'has-error': registrationForm.controls['surname'].invalid }" [formGroup]="registrationForm">
+                            <label for="surname">Surname</label>
+                            <input type="text" class="form-control" formControlName="surname" name="surname" required />
+                            <span *ngIf="registrationForm.controls['surname'].errors && !registrationForm.controls['surname'].pristine" class="help-block">
+                                <div [hidden]="!registrationForm.controls['surname'].errors.required">Surname is required.</div>
+                            </span>
+                        </div>
+                        <div class="form-group" [ngClass]="{ 'has-error': registrationForm.controls['phoneNumber'].invalid }" [formGroup]="registrationForm">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="text" class="form-control" formControlName="phoneNumber" name="phoneNumber" required />
+                            <span *ngIf="registrationForm.controls['phoneNumber'].errors && !registrationForm.controls['phoneNumber'].pristine" class="help-block">
+                                <div [hidden]="!registrationForm.controls['phoneNumber'].errors.required">Surname is required.</div>
+                            </span>
+                        </div>
+                        <div class="form-group" [ngClass]="{ 'has-error': registrationForm.controls['password'].invalid }" [formGroup]="registrationForm">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" formControlName="password" name="password" required />
+                            <span *ngIf="registrationForm.controls['password'].errors && !registrationForm.controls['password'].pristine" class="help-block">
+                                <div [hidden]="!registrationForm.controls['password'].errors.required">Password is required.</div>
+                            </span>
+                        </div>
+                        <div class="form-group" [formGroup]="registrationForm">
+                            <input type="hidden" formControlName="isActive" name="isActive" value="true" />
+                            <input type="hidden" formControlName="isTwoFactorEnabled" name="isTwoFactorEnabled" value="true" />
+                            <input type="hidden" name="isLockOutEnabled" formControlName="isLockOutEnabled" value="true" />
+                            <input type="hidden" name="shouldChangePasswordOnNextLogin" formControlName="shouldChangePasswordOnNextLogin" value="true" />
+                            <button [disabled]="loading" class="btn btn-primary">Register</button>
+                            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

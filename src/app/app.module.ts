@@ -77,7 +77,6 @@ import { AccordionModule } from 'primeng/primeng';     //accordion and accordion
 import { MenuItem } from 'primeng/primeng';            //api
 import { DataListModule } from 'primeng/primeng';
 import { PaginatorModule } from 'primeng/primeng';
-import { SweetAlert2Module, SwalComponent } from '@toverux/ngsweetalert2/dist/esm+types/index';
 
 @NgModule({
   imports: [
@@ -87,7 +86,6 @@ import { SweetAlert2Module, SwalComponent } from '@toverux/ngsweetalert2/dist/es
     TabsModule.forRoot(),
     ChartsModule,
     BrowserAnimationsModule,
-    SweetAlert2Module.forRoot(),
   ],
   declarations: [
     AppComponent,

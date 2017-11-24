@@ -6,9 +6,12 @@ import { GridComponent } from './grid.component';
 import { GridRoutingModule } from './grid-routing.module';
 
 import {DataTableModule,SharedModule} from 'primeng/primeng';
-import {CarService} from "../../_services/car.service";
+import { PaginatorModule } from 'primeng/primeng';
+import {CarService, UserService, AuditLogsService} from "../../_services/index";
 import {Http, ConnectionBackend, RequestOptions, HttpModule} from "@angular/http";
 import {HttpClientModule} from "@angular/common/http";
+import {GrowlModule} from 'primeng/primeng';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 @NgModule({
   imports: [
@@ -17,14 +20,16 @@ import {HttpClientModule} from "@angular/common/http";
     BsDropdownModule,
     DataTableModule,
     SharedModule,
+    PaginatorModule,
+      GrowlModule,
     HttpModule, HttpClientModule,
   ],
   declarations: [ GridComponent ],
   providers: [
       CarService,
-      //Http,
-      //ConnectionBackend,
-      //RequestOptions
+      UserService,
+      AuditLogsService,
+      MessageService
   ],
 })
 export class GridModule { }

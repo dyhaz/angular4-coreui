@@ -7,8 +7,8 @@ import { AuthenticationService } from '../../_services/index';
 import {Message} from 'primeng/primeng';
 import {MessageService} from 'primeng/components/common/messageservice';
 
-import { SweetAlert2Module, SwalComponent } from '@toverux/ngsweetalert2/dist/esm+types/index';
-import swal, { SweetAlertOptions, SweetAlertType } from 'sweetalert2';
+//import { SweetAlert2Module, SwalComponent } from '@toverux/ngx-sweetalert2';
+//import swal, { SweetAlertOptions, SweetAlertType } from 'sweetalert2';
 
 export class MessageModel {
 
@@ -21,8 +21,8 @@ export class MessageModel {
   providers: [MessageService]
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('dialog')
-  public dialog: SwalComponent;
+  //@ViewChild('dialog')
+  //public dialog: SwalComponent;
 
   model: any = {};
   loading = false;

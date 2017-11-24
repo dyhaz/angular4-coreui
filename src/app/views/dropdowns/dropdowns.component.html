@@ -1,0 +1,31 @@
+<div class="animated fadeIn">
+  <p-growl [(value)]="msgs"></p-growl>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>Dropdown</strong>
+          <div class="card-actions">
+            <a href="#" class="btn-setting"><i class="icon-settings"></i></a>
+            <button class="btn-minimize" type="button" data-toggle="collapse" data-target="" aria-expanded="false" aria-controls="collapseExample">
+              <i class="icon-arrow-up"></i>
+            </button>
+            <a href="#" class="btn-close"><i class="icon-close"></i></a>
+          </div>
+        </div>
+        <div class="card-body">
+          <p-dropdown [options]="categories" [(ngModel)]="selectedCategory" [style]="{'width':'150px'}">
+            <ng-template let-category pTemplate="item">
+              <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                <div style="font-size:14px;float:right;margin-top:4px">{{category.label}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+          <p-dropdown [options]="categories" [(ngModel)]="selectedCategory2" [filter]="true" filterBy="label,value.name"></p-dropdown>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+</div>
